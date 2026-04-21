@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|TowerDefenseGame\\TowerDefenseGame.csproj|c:\\users\\david\\onedrive - htl-rankweil\\allgemein\\hif\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\towerdefense\\towerdefensegame\\towerdefensegame\\models\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|TowerDefenseGame\\TowerDefenseGame.csproj|solutionrelative:towerdefensegame\\models\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|TowerDefenseGame\\TowerDefenseGame.csproj|c:\\users\\david\\onedrive - htl-rankweil\\allgemein\\hif\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\towerdefense\\towerdefensegame\\towerdefensegame\\helpers\\pathdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|TowerDefenseGame\\TowerDefenseGame.csproj|solutionrelative:towerdefensegame\\helpers\\pathdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|TowerDefenseGame\\TowerDefenseGame.csproj|c:\\users\\david\\onedrive - htl-rankweil\\allgemein\\hif\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\towerdefense\\towerdefensegame\\towerdefensegame\\models\\snipertower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|TowerDefenseGame\\TowerDefenseGame.csproj|solutionrelative:towerdefensegame\\models\\snipertower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\Models\\Enemy.cs",
+              "RelativeDocumentMoniker": "TowerDefenseGame\\Models\\Enemy.cs",
+              "ToolTip": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\Models\\Enemy.cs",
+              "RelativeToolTip": "TowerDefenseGame\\Models\\Enemy.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T15:14:56.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PathDefinition.cs",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\Helpers\\PathDefinition.cs",
+              "RelativeDocumentMoniker": "TowerDefenseGame\\Helpers\\PathDefinition.cs",
+              "ToolTip": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\Helpers\\PathDefinition.cs",
+              "RelativeToolTip": "TowerDefenseGame\\Helpers\\PathDefinition.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T15:14:45.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SniperTower.cs",
+              "DocumentMoniker": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\Models\\SniperTower.cs",
+              "RelativeDocumentMoniker": "TowerDefenseGame\\Models\\SniperTower.cs",
+              "ToolTip": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\Models\\SniperTower.cs",
+              "RelativeToolTip": "TowerDefenseGame\\Models\\SniperTower.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:56:47.345Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
