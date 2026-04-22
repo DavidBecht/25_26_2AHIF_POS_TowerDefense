@@ -30,29 +30,15 @@ public class WaveSpawner
 
     public Enemy? Update(double deltaTime)
     {
-        // gemacht von Karim, David, Lara
-        // TODO (WP9): Spawne Gegner im Takt von _spawnInterval.
-        // 1. Wenn IsSpawning == false oder _enemiesToSpawn <= 0: return null
         if (IsSpawning == false || _enemiesToSpawn <= 0) return null;
-        // 2. Reduziere _spawnTimer um deltaTime
         _spawnTimer -= deltaTime;
-        // 3. Wenn _spawnTimer > 0: return null (noch nicht Zeit)
         if (_spawnTimer > 0) return null;
-        // 4. Setze _spawnTimer = _spawnInterval zurück
         _spawnTimer = _spawnInterval;
-        // 5. Reduziere _enemiesToSpawn um 1
         _enemiesToSpawn -= 1;
-        // 6. Wenn _enemiesToSpawn == 0: IsSpawning = false
         if (_enemiesToSpawn == 0) IsSpawning = false;
-        // 7. Erzeuge und gib einen Gegner zurück:
-
-        //    - Jede 3. Welle: return new TankEnemy()
         if (CurrentWave % 3 == 0) return new TankEnemy();
-        //    - Jede 2. Welle: return new FastEnemy()
         else if (CurrentWave % 2 == 0) return new FastEnemy();
-        //    - Sonst:         return new Enemy(hp: 80 + CurrentWave * 15, speed: 1.2, reward: 10)
         else new Enemy(hp: 80 + CurrentWave * 15, speed: 1.2, reward: 10);
-        // Tipp: Verwende CurrentWave % 3 == 0 bzw. CurrentWave % 2 == 0 für die Bedingungen.
         return null;
     }
 }
