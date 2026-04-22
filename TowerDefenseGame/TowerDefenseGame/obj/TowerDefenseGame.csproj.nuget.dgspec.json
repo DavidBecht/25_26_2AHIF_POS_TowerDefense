@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj": {}
+    "C:\\Users\\Manuel Strauss\\Programming\\2. Klasse\\C#\\Exercises\\WPF\\25_26_2AHIF_POS_TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj": {
+    "C:\\Users\\Manuel Strauss\\Programming\\2. Klasse\\C#\\Exercises\\WPF\\25_26_2AHIF_POS_TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj",
+        "projectUniqueName": "C:\\Users\\Manuel Strauss\\Programming\\2. Klasse\\C#\\Exercises\\WPF\\25_26_2AHIF_POS_TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj",
         "projectName": "TowerDefenseGame",
-        "projectPath": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj",
-        "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\david\\OneDrive - HTL-Rankweil\\Allgemein\\HIF\\pos1-2hif-skriptum-dil\\aufgaben-csharp\\TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\obj\\",
+        "projectPath": "C:\\Users\\Manuel Strauss\\Programming\\2. Klasse\\C#\\Exercises\\WPF\\25_26_2AHIF_POS_TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\TowerDefenseGame.csproj",
+        "packagesPath": "C:\\Users\\Manuel Strauss\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Manuel Strauss\\Programming\\2. Klasse\\C#\\Exercises\\WPF\\25_26_2AHIF_POS_TowerDefense\\TowerDefenseGame\\TowerDefenseGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Manuel Strauss\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,9 +25,8 @@
           "net8.0-windows"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Users\\david\\Desktop\\ExtendAI\\wpf-test-app\\ExtendAI.WPF.Sdk\\nupkg": {},
-          "C:\\Users\\david\\Desktop\\ExtendAI\\wpf-test-app\\nupkg": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -83,7 +83,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

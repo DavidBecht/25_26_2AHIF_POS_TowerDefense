@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -27,15 +28,26 @@ public class Tower
     // WP3: Nächsten Gegner in Reichweite finden
     // -------------------------------------------------------------------------
 
+    private static double PointDist(Point point1, Point point2)
+    {
+        double x_dif_pow = Math.Pow(point1.X - point2.X, 2);
+        double y_dif_pow = Math.Pow(point1.Y - point2.Y, 2);
+        return Math.Sqrt(x_dif_pow + y_dif_pow);
+    }
+
     public Enemy? FindTarget(List<Enemy> enemies)
     {
-        // TODO (WP3): Gib den lebenden Gegner zurück, der am nächsten an Position ist
-        // UND dessen Abstand <= Range ist. Gibt null zurück wenn kein Gegner in Reichweite.
-        //
-        // Tipp: Distanz berechnen mit:
-        //   double dist = Math.Sqrt(Math.Pow(e.Position.X - Position.X, 2)
-        //                         + Math.Pow(e.Position.Y - Position.Y, 2));
-        return null;
+        try
+        {
+            List<Enemy> alive_targets = enemies.Where(x => x.IsAlive).ToList();
+            List<Enemy> inrange_targets = alive_targets.Where(x => PointDist(this.Position, x.Position) <= this.Range).ToList();
+            Enemy? enemy = inrange_targets.OrderByDescending(x => x.getWaypointIdx()).FirstOrDefault();
+            return enemy;
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     // -------------------------------------------------------------------------
