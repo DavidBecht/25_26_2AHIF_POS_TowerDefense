@@ -67,15 +67,10 @@ public class Tower
 
     public Projectile? Shoot(Enemy target)
     {
-        // TODO (WP5): Erstelle ein Projektil Richtung target.Position.
-        //
-        // Schritte:
-        // 1. Setze Cooldown zurück: _cooldown = 1.0 / FireRate
-        // 2. Berechne Richtungsvektor (dx, dy) von Position zu target.Position
-        // 3. Normalisiere: teile durch Distanz → ergibt Einheitsvektor
-        // 4. Erstelle new Projectile(Position, new Vector(ndx, ndy), speed: 300, Damage)
-        // 5. Gib das Projektil zurück
-        return null;
+        _cooldown = 1.0 / FireRate;
+        Vector direction_vektor_target = target.Position - this.Position;
+        direction_vektor_target.Normalize();
+        return new Projectile(Position, direction_vektor_target, speed: 300, Damage);
     }
 
     // -------------------------------------------------------------------------
