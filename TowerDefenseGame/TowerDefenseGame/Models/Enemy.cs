@@ -107,6 +107,7 @@ public class Enemy
         _body = null; _hpBar = null; _hpBarBg = null;
     }
 
+    public int getWaypointIdx() => this._waypointIndex;
     protected virtual Brush  GetColor() => Brushes.Crimson;
     protected virtual double GetSize()  => 24;
 }
