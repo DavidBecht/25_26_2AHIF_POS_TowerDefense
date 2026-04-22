@@ -12,16 +12,24 @@ public class WaveSpawner
     // -------------------------------------------------------------------------
     // WP8: Nächste Welle starten
     // -------------------------------------------------------------------------
-
+    
     public void StartNextWave()
     {
         // TODO (WP8): Bereite die nächste Welle vor.
         //
         // 1. CurrentWave++ (erhöhe die Wellenzahl)
+        this.CurrentWave++;
+
         // 2. Berechne Anzahl der Gegner: _enemiesToSpawn = 5 + CurrentWave * 2
+        this._enemiesToSpawn = 5 + CurrentWave * 2;
+
         // 3. Verringere das Spawn-Intervall leicht mit jeder Welle (Minimum 0.4s):
         //       _spawnInterval = Math.Max(0.4, 1.2 - CurrentWave * 0.05)
+        this._spawnInterval = Math.Max(0.4, 1.2 - CurrentWave * 0.05);
+
         // 4. Setze IsSpawning = true und _spawnTimer = 0
+        this.IsSpawning = true;
+        this._spawnTimer = 0;
     }
 
     // -------------------------------------------------------------------------
