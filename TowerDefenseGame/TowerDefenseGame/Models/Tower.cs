@@ -47,6 +47,10 @@ public class Tower
         // TODO (WP4): Verwalte den Cooldown-Timer.
         // - Reduziere _cooldown um deltaTime (wenn _cooldown > 0).
         // - Gib true zurück wenn _cooldown <= 0.
+        if(_cooldown > 0)
+            _cooldown -= deltaTime;
+        if (_cooldown <= 0)
+            return true;
         return false;
     }
 
