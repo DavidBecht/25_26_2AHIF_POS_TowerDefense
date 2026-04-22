@@ -61,7 +61,7 @@ public class Enemy
     {
         int hp = Hp;
         hp -= damage;
-        Hp = Math.Min(hp, 0);
+        Hp = Math.Max(hp, 0);
         if (Hp == 0)
             IsAlive = false;
     }
