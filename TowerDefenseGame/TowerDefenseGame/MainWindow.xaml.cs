@@ -1,3 +1,4 @@
+using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -181,8 +182,12 @@ public partial class MainWindow : Window
                 GameCanvas.Children.Add(rangeCircle);
 
                 _rangeCircle = rangeCircle; 
+                return;
             }
         }
+        GameCanvas.Children.Remove(_rangeCircle);
+        _rangeCircle = null;
+
 
 
     }
