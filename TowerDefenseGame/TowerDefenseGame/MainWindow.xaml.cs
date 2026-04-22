@@ -101,14 +101,10 @@ public partial class MainWindow : Window
 
     private void UpdateUI()
     {
-        // TODO (WP13): Setze die Texte der drei Labels in der Seitenleiste.
-        //
-        // TxtLives.Text  = $"❤  Leben:  {_state.Lives}";
-        // TxtScore.Text  = $"★  Score:  {_state.Score}";
-        // TxtWave.Text   = $"〜  Welle:  {_state.WaveSpawner.CurrentWave}";
-        //
-        // Zusatz: Deaktiviere BtnNextWave während eine Welle läuft:
-        // BtnNextWave.IsEnabled = !_state.WaveSpawner.IsSpawning;
+        TxtLives.Text  = $"❤  Leben:  {_state.Lives}";
+        TxtScore.Text  = $"★  Score:  {_state.Score}";
+        TxtWave.Text   = $"〜  Wave:  {_state.WaveSpawner.CurrentWave}";
+        BtnNextWave.IsEnabled = !_state.WaveSpawner.IsSpawning;
     }
 
     // -------------------------------------------------------------------------
