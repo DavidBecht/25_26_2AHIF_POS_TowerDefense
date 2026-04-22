@@ -38,6 +38,24 @@ public class Enemy
 
     public virtual void Move()
     {
+        double dx = PathDefinition.Waypoints[PathDefinition.Waypoints.Count() - 1].X - Position.X;
+        double dy = PathDefinition.Waypoints[PathDefinition.Waypoints.Count() - 1].Y - Position.Y;
+        double distance = Math.Sqrt(dx * dx + dy * dy);
+
+        if (distance < Speed)
+        {
+            _waypointIndex++;
+                if (_waypointIndex >= PathDefinition.Waypoints.Count())
+            {
+                ReachedEnd = true;
+                IsAlive = false;
+                return;
+            }
+        }
+        dx = dx / distance * Speed;
+        dy = dy / distance * Speed;
+        Position = new Point(Position.X + dx, Position.Y + dy);
+
         // TODO (WP1): Bewege den Gegner in Richtung PathDefinition.Waypoints[_waypointIndex].
         //
         // Algorithmus:
