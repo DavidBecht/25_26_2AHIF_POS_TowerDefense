@@ -33,19 +33,22 @@
 
             <Separator Background="#444"/>
 
-            <!-- WP15: Tower-Auswahl -->
             <TextBlock Text="Turm auswählen:" Foreground="#aaaaaa"
                        Margin="10,10,10,4" FontSize="11"/>
 
-            <RadioButton x:Name="RbBasic"       GroupName="TowerType" IsChecked="True"
+            <RadioButton x:Name="RbBasic"       GroupName="TowerType"
                          Foreground="White" Margin="10,3,10,0" FontSize="12"
-                         Content="⬛  Basic  (R=120 | D=20 | 1/s)"/>
+                         Content="⬛  Basic  (R=120 | D=20 | 1/s)" Checked="RbBasic_Checked"/>
             <RadioButton x:Name="RbSniper"      GroupName="TowerType"
                          Foreground="White" Margin="10,3,10,0" FontSize="12"
-                         Content="🟩  Sniper  (R=250 | D=15 | 0.5/s)"/>
+                         Content="🟩  Sniper  (R=250 | D=15 | 0.5/s)" Checked="RbSniper_Checked"/>
             <RadioButton x:Name="RbMachineGun"  GroupName="TowerType"
                          Foreground="White" Margin="10,3,10,10" FontSize="12"
-                         Content="🟥  MG      (R=100 | D=40 | 4/s)"/>
+                         Content="🟥  MG      (R=100 | D=40 | 4/s)" Checked="RbMachineGun_Checked"/>
+
+            <TextBlock Name="TxtTowerRange" Text="Reichweite:     - px" Foreground="White" Margin="15,0,0,0"/>
+            <TextBlock Name="TxtTowerDamage" Text="Schaden:        -" Foreground="White" Margin="15,0,0,0"/>
+            <TextBlock Name="TxtTowerFireRate" Text="Schussrate:     - / s" Foreground="White" Margin="15,0,0,0"/>
 
             <Separator Background="#444"/>
 
