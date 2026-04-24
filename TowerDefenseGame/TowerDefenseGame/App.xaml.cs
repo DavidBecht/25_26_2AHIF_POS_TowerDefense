@@ -32,6 +32,7 @@ public partial class App : Application
             .WriteTo.File("towerdefense.log", rollingInterval:RollingInterval.Day, retainedFileCountLimit: 7)
             .CreateLogger();
         Log.Information("=== Tower Defense gestartet ===");
+        
     }
 
     protected override void OnExit(ExitEventArgs e)
