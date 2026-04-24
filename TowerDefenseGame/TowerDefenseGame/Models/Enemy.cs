@@ -19,7 +19,7 @@ public class Enemy
     // Index des nächsten anzusteuernden Wegpunkts
     private int _waypointIndex = 1;
 
-    private Ellipse?   _body;
+    protected Ellipse?   _body;
     private Rectangle? _hpBarBg;
     private Rectangle? _hpBar;
 
@@ -88,7 +88,7 @@ public class Enemy
     // Zeichnen (fertig implementiert)
     // -------------------------------------------------------------------------
 
-    public void Draw(Canvas canvas)
+    public virtual void Draw(Canvas canvas)
     {
         if (_body == null)
         {
