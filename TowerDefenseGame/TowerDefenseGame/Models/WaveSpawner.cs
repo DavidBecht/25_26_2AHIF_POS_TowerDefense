@@ -12,16 +12,24 @@ public class WaveSpawner
     // -------------------------------------------------------------------------
     // WP8: Nächste Welle starten
     // -------------------------------------------------------------------------
-
+    
     public void StartNextWave()
     {
         // TODO (WP8): Bereite die nächste Welle vor.
         //
         // 1. CurrentWave++ (erhöhe die Wellenzahl)
+        this.CurrentWave++;
+
         // 2. Berechne Anzahl der Gegner: _enemiesToSpawn = 5 + CurrentWave * 2
+        this._enemiesToSpawn = 5 + CurrentWave * 2;
+
         // 3. Verringere das Spawn-Intervall leicht mit jeder Welle (Minimum 0.4s):
         //       _spawnInterval = Math.Max(0.4, 1.2 - CurrentWave * 0.05)
+        this._spawnInterval = Math.Max(0.4, 1.2 - CurrentWave * 0.05);
+
         // 4. Setze IsSpawning = true und _spawnTimer = 0
+        this.IsSpawning = true;
+        this._spawnTimer = 0;
     }
 
     // -------------------------------------------------------------------------
@@ -30,20 +38,15 @@ public class WaveSpawner
 
     public Enemy? Update(double deltaTime)
     {
-        // TODO (WP9): Spawne Gegner im Takt von _spawnInterval.
-        //
-        // 1. Wenn IsSpawning == false oder _enemiesToSpawn <= 0: return null
-        // 2. Reduziere _spawnTimer um deltaTime
-        // 3. Wenn _spawnTimer > 0: return null (noch nicht Zeit)
-        // 4. Setze _spawnTimer = _spawnInterval zurück
-        // 5. Reduziere _enemiesToSpawn um 1
-        // 6. Wenn _enemiesToSpawn == 0: IsSpawning = false
-        // 7. Erzeuge und gib einen Gegner zurück:
-        //    - Jede 3. Welle: return new TankEnemy()
-        //    - Jede 2. Welle: return new FastEnemy()
-        //    - Sonst:         return new Enemy(hp: 80 + CurrentWave * 15, speed: 1.2, reward: 10)
-        //
-        // Tipp: Verwende CurrentWave % 3 == 0 bzw. CurrentWave % 2 == 0 für die Bedingungen.
+        if (IsSpawning == false || _enemiesToSpawn <= 0) return null;
+        _spawnTimer -= deltaTime;
+        if (_spawnTimer > 0) return null;
+        _spawnTimer = _spawnInterval;
+        _enemiesToSpawn -= 1;
+        if (_enemiesToSpawn == 0) IsSpawning = false;
+        if (CurrentWave % 3 == 0) return new TankEnemy();
+        else if (CurrentWave % 2 == 0) return new FastEnemy();
+        else new Enemy(hp: 80 + CurrentWave * 15, speed: 1.2, reward: 10);
         return null;
     }
 }

@@ -27,15 +27,26 @@ public class Tower
     // WP3: Nächsten Gegner in Reichweite finden
     // -------------------------------------------------------------------------
 
+    private static double PointDist(Point point1, Point point2)
+    {
+        double x_dif_pow = Math.Pow(point1.X - point2.X, 2);
+        double y_dif_pow = Math.Pow(point1.Y - point2.Y, 2);
+        return Math.Sqrt(x_dif_pow + y_dif_pow);
+    }
+
     public Enemy? FindTarget(List<Enemy> enemies)
     {
-        // TODO (WP3): Gib den lebenden Gegner zurück, der am nächsten an Position ist
-        // UND dessen Abstand <= Range ist. Gibt null zurück wenn kein Gegner in Reichweite.
-        //
-        // Tipp: Distanz berechnen mit:
-        //   double dist = Math.Sqrt(Math.Pow(e.Position.X - Position.X, 2)
-        //                         + Math.Pow(e.Position.Y - Position.Y, 2));
-        return null;
+        try
+        {
+            List<Enemy> alive_targets = enemies.Where(x => x.IsAlive).ToList();
+            List<Enemy> inrange_targets = alive_targets.Where(x => PointDist(this.Position, x.Position) <= this.Range).ToList();
+            Enemy? enemy = inrange_targets.OrderByDescending(x => x.getWaypointIdx()).FirstOrDefault();
+            return enemy;
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -47,6 +58,10 @@ public class Tower
         // TODO (WP4): Verwalte den Cooldown-Timer.
         // - Reduziere _cooldown um deltaTime (wenn _cooldown > 0).
         // - Gib true zurück wenn _cooldown <= 0.
+        if(_cooldown > 0)
+            _cooldown -= deltaTime;
+        if (_cooldown <= 0)
+            return true;
         return false;
     }
 
@@ -56,15 +71,10 @@ public class Tower
 
     public Projectile? Shoot(Enemy target)
     {
-        // TODO (WP5): Erstelle ein Projektil Richtung target.Position.
-        //
-        // Schritte:
-        // 1. Setze Cooldown zurück: _cooldown = 1.0 / FireRate
-        // 2. Berechne Richtungsvektor (dx, dy) von Position zu target.Position
-        // 3. Normalisiere: teile durch Distanz → ergibt Einheitsvektor
-        // 4. Erstelle new Projectile(Position, new Vector(ndx, ndy), speed: 300, Damage)
-        // 5. Gib das Projektil zurück
-        return null;
+        _cooldown = 1.0 / FireRate;
+        Vector direction_vektor_target = target.Position - this.Position;
+        direction_vektor_target.Normalize();
+        return new Projectile(Position, direction_vektor_target, speed: 300, Damage);
     }
 
     // -------------------------------------------------------------------------

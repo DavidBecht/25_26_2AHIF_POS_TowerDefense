@@ -1,4 +1,5 @@
 using Serilog;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -102,14 +103,10 @@ public partial class MainWindow : Window
 
     private void UpdateUI()
     {
-        // TODO (WP13): Setze die Texte der drei Labels in der Seitenleiste.
-        //
-        // TxtLives.Text  = $"❤  Leben:  {_state.Lives}";
-        // TxtScore.Text  = $"★  Score:  {_state.Score}";
-        // TxtWave.Text   = $"〜  Welle:  {_state.WaveSpawner.CurrentWave}";
-        //
-        // Zusatz: Deaktiviere BtnNextWave während eine Welle läuft:
-        // BtnNextWave.IsEnabled = !_state.WaveSpawner.IsSpawning;
+        TxtLives.Text  = $"❤  Leben:  {_state.Lives}";
+        TxtScore.Text  = $"★  Score:  {_state.Score}";
+        TxtWave.Text   = $"〜  Wave:  {_state.WaveSpawner.CurrentWave}";
+        BtnNextWave.IsEnabled = !_state.WaveSpawner.IsSpawning;
     }
 
     // -------------------------------------------------------------------------
@@ -173,6 +170,38 @@ public partial class MainWindow : Window
         //    - Positioniere mit Canvas.SetLeft(tower.Position.X - tower.Range) usw.
         //    - Füge zum Canvas hinzu, speichere in _rangeCircle.
         // 4. Wenn kein Turm in der Nähe: _rangeCircle entfernen und auf null setzen.
+
+        Point mousePosition = e.GetPosition(GameCanvas);
+
+        foreach (Tower t in _state.Towers)
+        {
+            Point towerPosition = t.Position;
+
+            if (Math.Abs(mousePosition.X - towerPosition.X) < 20 && Math.Abs(mousePosition.Y - towerPosition.Y) < 20)
+            {
+                GameCanvas.Children.Remove(_rangeCircle);
+
+                Ellipse rangeCircle = new Ellipse();
+                rangeCircle.Width = t.Range * 2;
+                rangeCircle.Height = t.Range * 2;
+                rangeCircle.Fill = new SolidColorBrush(Color.FromArgb(40, 255, 255, 255));
+                rangeCircle.Stroke = Brushes.White;
+                rangeCircle.StrokeThickness = 1;
+
+                Canvas.SetLeft(rangeCircle, towerPosition.X - t.Range);
+                Canvas.SetTop(rangeCircle, towerPosition.Y - t.Range);
+
+                GameCanvas.Children.Add(rangeCircle);
+
+                _rangeCircle = rangeCircle; 
+                return;
+            }
+        }
+        GameCanvas.Children.Remove(_rangeCircle);
+        _rangeCircle = null;
+
+
+
     }
 
     // -------------------------------------------------------------------------

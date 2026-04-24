@@ -59,9 +59,11 @@ public class Enemy
 
     public void TakeDamage(int damage)
     {
-        // TODO (WP2): Ziehe damage von Hp ab.
-        // - Stelle sicher dass Hp nicht unter 0 fällt (Math.Max).
-        // - Wenn Hp == 0: IsAlive = false setzen.
+        int hp = Hp;
+        hp -= damage;
+        Hp = Math.Max(hp, 0);
+        if (Hp == 0)
+            IsAlive = false;
     }
 
     // -------------------------------------------------------------------------
@@ -107,6 +109,7 @@ public class Enemy
         _body = null; _hpBar = null; _hpBarBg = null;
     }
 
+    public int getWaypointIdx() => this._waypointIndex;
     protected virtual Brush  GetColor() => Brushes.Crimson;
     protected virtual double GetSize()  => 24;
 }
