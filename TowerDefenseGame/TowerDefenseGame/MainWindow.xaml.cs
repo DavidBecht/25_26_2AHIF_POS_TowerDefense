@@ -1,13 +1,14 @@
+using Serilog;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Serilog;
 using TowerDefenseGame.Helpers;
 using TowerDefenseGame.Models;
 using TowerDefenseGame.Services;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace TowerDefenseGame;
 
@@ -117,24 +118,39 @@ public partial class MainWindow : Window
 
     private void ShowGameOver()
     {
-        // TODO (WP14): Zeige ein halbtransparentes Overlay auf dem Canvas.
-        //
-        // Schritte:
-        // 1. Erstelle ein Rectangle (800x480, Fill = schwarz mit ~60% Opacity)
-        //    und füge es dem GameCanvas hinzu.
-        // 2. Erstelle einen TextBlock "GAME OVER" (FontSize=48, Farbe Rot, zentriert).
-        //    Verwende Canvas.SetLeft / Canvas.SetTop zum Positionieren.
-        // 3. Erstelle einen zweiten TextBlock mit dem Score.
-        // 4. Rufe _timer.Stop() auf.
-        //
-        // Beispiel für ein Rectangle:
-        // var overlay = new Rectangle
-        // {
-        //     Width = 800, Height = 480,
-        //     Fill = new SolidColorBrush(Color.FromArgb(160, 0, 0, 0))
-        // };
-        // GameCanvas.Children.Add(overlay);
+        Rectangle rect = new Rectangle
+        {
+            Width = 800,
+            Height = 480,
+            Fill = new SolidColorBrush(Color.FromArgb(160, 0, 0, 0)) 
+        };
+        GameCanvas.Children.Add(rect);
 
+        TextBlock gameOverText = new TextBlock
+        {
+            Text = "GAME OVER",
+            FontSize = 48,
+            Foreground = Brushes.Red,
+            FontWeight = FontWeights.Bold
+        };
+
+     
+        Canvas.SetLeft(gameOverText, (800 - 300) / 2); 
+        Canvas.SetTop(gameOverText, 150);
+        GameCanvas.Children.Add(gameOverText);
+
+
+        var scoreText = new TextBlock
+        {
+            FontSize = 32,
+            Foreground = Brushes.White
+        };
+
+        Canvas.SetLeft(scoreText, (800 - 200) / 2);
+        Canvas.SetTop(scoreText, 230);
+        GameCanvas.Children.Add(scoreText);
+
+       
         _timer.Stop();
     }
 
