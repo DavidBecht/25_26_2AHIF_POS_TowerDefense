@@ -29,15 +29,21 @@ public class Projectile
 
     public void Move(double deltaTime)
     {
+        double newX = Position.X + Direction.X * Speed * deltaTime;
+        double newY = Position.Y + Direction.Y * Speed * deltaTime;
+        Position = new Point(newX, newY);
+        if (newX < -50 || newX  > 850 || newY < -50 || newY > 530)
+        {
+            IsActive = false;
+        }
+
         // TODO (WP6): Bewege das Projektil.
         //
         // Neue Position:
-        //   double newX = Position.X + Direction.X * Speed * deltaTime;
-        //   double newY = Position.Y + Direction.Y * Speed * deltaTime;
-        //   Position = new Point(newX, newY);
+
         //
         // Setze IsActive = false wenn das Projektil außerhalb des Canvas ist:
-        //   x < -50 || x > 850 || y < -50 || y > 530
+      
     }
 
     // -------------------------------------------------------------------------
