@@ -1,3 +1,4 @@
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace TowerDefenseGame.Models;
@@ -21,5 +22,19 @@ public class TankEnemy : Enemy
     public TankEnemy() : base(hp: 350, speed: 0.7, reward: 25) { }
 
     protected override Brush  GetColor() => Brushes.DarkViolet; // TODO (WP17): Farbe wählen
-    protected override double GetSize()  => 34;                  // TODO (WP17): Größe anpassen
+    protected override double GetSize()
+    {
+        return 34; // TODO (WP17): Größe anpassen
+    }
+
+    public override void Draw(Canvas canvas)
+    {
+        base.Draw(canvas); // Zeichne den normalen Gegner
+        // TODO (WP17 Optional): Zeichne einen dicken Rand um den Gegner für Panzer-Optik
+        // Tipp: Verwende einen Ellipse mit größerem Durchmesser und einer auffälligen Farbe.
+
+        _body.StrokeThickness += 3;
+    }
+
+
 }
