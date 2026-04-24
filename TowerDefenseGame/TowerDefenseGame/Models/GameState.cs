@@ -94,30 +94,30 @@ public class GameState
         // - Turm platziert (in TryPlaceTower): Log.Information("Turm {T} auf ({C},{R}) platziert.", selectedType, col, row);
 
         // Gegner (iteriere über eine Kopie der Liste mit ToList()):
-        //   foreach (var enemy in Enemies.ToList())
-        //   {
-        //       if (!enemy.IsAlive)
-        //       {
-        //           enemy.RemoveFromCanvas(canvas);
-        //           Enemies.Remove(enemy);
-        //           if (enemy.ReachedEnd)
-        //               Lives--;           // Leben abziehen
-        //           else
-        //               Score += enemy.Reward;  // Punkte gutschreiben
-        //       }
-        //   }
-        //
+        foreach (var enemy in Enemies.ToList())
+        {
+            if (!enemy.IsAlive)
+            {
+                enemy.RemoveFromCanvas(canvas);
+                Enemies.Remove(enemy);
+                if (enemy.ReachedEnd)
+                    Lives--;           // Leben abziehen
+                else
+                    Score += enemy.Reward;  // Punkte gutschreiben
+            }
+        }
+        
         // Projektile (analog):
-        //   foreach (var p in Projectiles.ToList())
-        //   {
-        //       if (!p.IsActive)
-        //       {
-        //           p.RemoveFromCanvas(canvas);
-        //           Projectiles.Remove(p);
-        //       }
-        //   }
-        //
+        foreach (var p in Projectiles.ToList())
+        {
+            if (!p.IsActive)
+            {
+                p.RemoveFromCanvas(canvas);
+                Projectiles.Remove(p);
+            }
+        }
+        
         // Game Over prüfen:
-        //   if (Lives <= 0) IsGameOver = true;
+        if (Lives <= 0) IsGameOver = true;
     }
 }
