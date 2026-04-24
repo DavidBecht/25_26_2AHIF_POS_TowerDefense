@@ -49,32 +49,39 @@ public class GameState
         //
         // Schritte:
         // 1. Berechne Zelle:
-        //       int col = (int)(mousePosition.X / PathDefinition.CellSize);
-        //       int row = (int)(mousePosition.Y / PathDefinition.CellSize);
-        //
+        int col = (int)(mousePosition.X / PathDefinition.CellSize);
+        int row = (int)(mousePosition.Y / PathDefinition.CellSize);
+
         // 2. Prüfe ob die Zelle gültig ist (sonst return false):
-        //    - col < 0 || col >= PathDefinition.Columns → außerhalb
-        //    - row < 0 || row >= PathDefinition.Rows    → außerhalb
-        //    - GridHelper.IsCellOnPath(col, row)        → auf Pfad
-        //    - _occupiedCells.Contains((col, row))      → bereits belegt
-        //
+        if (col < 0 || col >= PathDefinition.Columns)
+            return false;
+
+        else if (row < 0 || row >= PathDefinition.Rows)
+            return false;
+
+        else if (GridHelper.IsCellOnPath(col, row))
+            return false;
+
+        else if (_occupiedCells.Contains((col, row)))
+            return false;
+
         // 3. Berechne den Pixel-Mittelpunkt der Zelle:
-        //       double cx = col * PathDefinition.CellSize + PathDefinition.CellSize / 2.0;
-        //       double cy = row * PathDefinition.CellSize + PathDefinition.CellSize / 2.0;
-        //       var center = new Point(cx, cy);
-        //
+        double cx = col * PathDefinition.CellSize + PathDefinition.CellSize / 2.0;
+        double cy = row * PathDefinition.CellSize + PathDefinition.CellSize / 2.0;
+        var center = new Point(cx, cy);
+
         // 4. Erstelle den passenden Turm je nach selectedType:
-        //       Tower tower = selectedType switch
-        //       {
-        //           TowerType.Sniper     => new SniperTower(center),
-        //           TowerType.MachineGun => new MachineGunTower(center),
-        //           _                    => new Tower(center, range: 120, damage: 20, fireRate: 1.0),
-        //       };
-        //
+        Tower tower = selectedType switch
+        {
+            TowerType.Sniper     => new SniperTower(center),
+            TowerType.MachineGun => new MachineGunTower(center),
+        _                    => new Tower(center, range: 120, damage: 20, fireRate: 1.0),
+        };
+
         // 5. Füge Turm zur Liste hinzu und markiere Zelle als belegt:
-        //       Towers.Add(tower);
-        //       _occupiedCells.Add((col, row));
-        //
+        Towers.Add(tower);
+        _occupiedCells.Add((col, row));
+
         // 6. return true
         return false;
     }
