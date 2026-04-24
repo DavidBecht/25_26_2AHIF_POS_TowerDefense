@@ -46,14 +46,25 @@ public class Projectile
 
     public void CheckCollision(List<Enemy> enemies)
     {
-        // TODO (WP7): Prüfe ob dieses Projektil einen lebenden Gegner trifft.
-        //
-        // Für jeden Gegner in enemies (nur IsAlive == true):
-        //   - Berechne Distanz zwischen Position und enemy.Position
-        //   - Wenn Distanz < 18 (Treffradius):
-        //       enemy.TakeDamage(Damage)
-        //       IsActive = false
-        //       return  ← Projektil kann nur einmal treffen
+        foreach (Enemy enemy in enemies)
+        {
+            if (!enemy.IsAlive)
+                return;
+
+            double x_distance = Position.X - enemy.Position.X;
+            double y_distance = Position.Y - enemy.Position.Y;
+
+            double distance =  Math.Sqrt(Math.Pow(x_distance, 2)+ Math.Pow(y_distance,2));
+
+            if (distance < 18)
+            {
+                enemy.TakeDamage(Damage);
+                IsActive = false;
+                return;
+            }
+            
+        }
+      
     }
 
     // -------------------------------------------------------------------------
