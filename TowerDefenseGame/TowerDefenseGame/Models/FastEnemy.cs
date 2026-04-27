@@ -21,5 +21,5 @@ public class FastEnemy : Enemy
     public FastEnemy() : base(hp: 40, speed: 3.5, reward: 5) { }
 
     protected override Brush GetColor() => Brushes.Orange;  // TODO (WP16): Farbe wählen
-    protected override double GetSize() => 18;              // TODO (WP16): Größe anpassen
+    protected override double GetSize() => 18;   // TODO (WP16): Größe anpassen
 }
