@@ -1,6 +1,7 @@
+using Serilog;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using Serilog;
 using TowerDefenseGame.Helpers;
 
 namespace TowerDefenseGame.Models;
@@ -76,6 +77,7 @@ public class GameState
         //       _occupiedCells.Add((col, row));
         //
         // 6. return true
+        Log.Information("Turm {T} auf ({C},{R}) platziert.", selectedType, "col, row"); // Diese zwei Variablen sind auch noch nicht vorhanden.
         return false;
     }
 
@@ -100,8 +102,10 @@ public class GameState
         //       {
         //           enemy.RemoveFromCanvas(canvas);
         //           Enemies.Remove(enemy);
+        //           Log.Debug("Gegner besiegt – Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
         //           if (enemy.ReachedEnd)
         //               Lives--;           // Leben abziehen
+        //               Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
         //           else
         //               Score += enemy.Reward;  // Punkte gutschreiben
         //       }
@@ -118,6 +122,9 @@ public class GameState
         //   }
         //
         // Game Over prüfen:
-        //   if (Lives <= 0) IsGameOver = true;
+        //   if (Lives <= 0){
+        //   IsGameOver = true;
+        //   Log.Warning("=== GAME OVER === Score: {S}, Welle: {W}", Score, WaveSpawner.CurrentWave);
+        //   }
     }
 }

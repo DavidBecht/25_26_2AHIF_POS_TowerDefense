@@ -46,7 +46,7 @@ public static class SaveGameService
         //       File.WriteAllText(SavePath, json);
         //
         // 4. Logging:
-        //       Log.Information("Spielstand gespeichert: Welle {Wave}, Score {Score}, Türme {Count}",
+        Log.Information("Spielstand gespeichert: Welle {Wave}, Score {Score}, Türme {Count}");//Es gibt all diese Variablen noch nicht
         //                        save.CurrentWave, save.Score, save.Towers.Count);
         //
         // Hinweis: Tower braucht eine neue Property:
@@ -66,14 +66,14 @@ public static class SaveGameService
         //
         // Schritte:
         // 1. Prüfe ob die Datei existiert:
-        //       if (!File.Exists(SavePath)) { Log.Warning("Keine Speicherdatei gefunden."); return null; }
+               if (!File.Exists(SavePath)) { Log.Warning("Keine Speicherdatei gefunden."); return null; }
         //
         // 2. Lese und deserialisiere:
         //       string json   = File.ReadAllText(SavePath);
         //       var    save   = JsonSerializer.Deserialize<SaveGame>(json, JsonOptions);
         //
         // 3. Logging:
-        //       Log.Information("Spielstand geladen: Welle {Wave}, Score {Score}",
+        Log.Information("Spielstand geladen: Welle {Wave}, Score {Score}"); //Es gibt diese Variablen auch noch nicht
         //                        save.CurrentWave, save.Score);
         //
         // 4. Gib save zurück.

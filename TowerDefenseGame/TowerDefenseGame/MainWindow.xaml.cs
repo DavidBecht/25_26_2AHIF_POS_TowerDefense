@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Serilog;
+using Serilog.Core;
 using TowerDefenseGame.Helpers;
 using TowerDefenseGame.Models;
 using TowerDefenseGame.Services;
@@ -29,6 +30,7 @@ public partial class MainWindow : Window
         InitTimer();
         UpdateUI();
         // TODO (WP21b): Log.Information("Hauptfenster geladen – Spiel bereit.");
+        Log.Information("Hauptfenster geladen – Spiel bereit.");
     }
 
     // -------------------------------------------------------------------------
@@ -212,6 +214,8 @@ public partial class MainWindow : Window
         {
             _state.WaveSpawner.StartNextWave();
             // TODO (WP21b): Log.Information("Welle {Wave} gestartet.", _state.WaveSpawner.CurrentWave);
+            Log.Information("Welle {Wave} gestartet.", _state.WaveSpawner.CurrentWave); // Es gibt Wave nicht
+
         }
     }
 
@@ -226,6 +230,7 @@ public partial class MainWindow : Window
         _lastTick = DateTime.Now;
         _timer.Start();
         UpdateUI();
+        Log.Information("Spiel neu gestartet.");
     }
 
     // -------------------------------------------------------------------------
