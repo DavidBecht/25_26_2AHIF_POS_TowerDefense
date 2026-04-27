@@ -1,8 +1,5 @@
 using Serilog;
-<<<<<<< Updated upstream
 using System;
-=======
->>>>>>> Stashed changes
 using System.Windows;
 using System.Windows.Controls;
 using TowerDefenseGame.Helpers;
