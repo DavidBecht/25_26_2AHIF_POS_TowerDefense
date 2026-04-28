@@ -33,7 +33,7 @@ public class TankEnemy : Enemy
         // TODO (WP17 Optional): Zeichne einen dicken Rand um den Gegner für Panzer-Optik
         // Tipp: Verwende einen Ellipse mit größerem Durchmesser und einer auffälligen Farbe.
 
-        _body.StrokeThickness += 3;
+        
     }
 
 

@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TowerDefenseGame.Helpers;
 
@@ -19,7 +20,7 @@ public class Enemy
     // Index des nächsten anzusteuernden Wegpunkts
     private int _waypointIndex = 1;
 
-    protected Ellipse?   _body;
+    protected Image? _body;
     private Rectangle? _hpBarBg;
     private Rectangle? _hpBar;
 
@@ -94,14 +95,12 @@ public class Enemy
         {
             _hpBarBg = new Rectangle { Width = 28, Height = 5, Fill = Brushes.DarkRed };
             _hpBar   = new Rectangle { Width = 28, Height = 5, Fill = Brushes.LimeGreen };
-            _body    = new Ellipse
+            _body = new Image()
             {
-                Width  = GetSize(),
-                Height = GetSize(),
-                Fill   = GetColor(),
-                Stroke = Brushes.Black,
-                StrokeThickness = 1.5,
+                Width = GetSize(),
+                Height = GetSize()
             };
+            _body.Source = new BitmapImage(new Uri("Assets/enemybild.png", UriKind.Relative));
             canvas.Children.Add(_hpBarBg);
             canvas.Children.Add(_hpBar);
             canvas.Children.Add(_body);
