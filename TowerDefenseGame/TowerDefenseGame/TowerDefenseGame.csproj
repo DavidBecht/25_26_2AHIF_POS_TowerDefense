@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\enemy1.png" />
+    <None Remove="Assets\enemy2.png" />
+    <None Remove="Assets\enemy3.png" />
     <None Remove="Assets\i6a0pev6553oo850s1nd8c85va-ff93239a1e67ce2d31d81b7de2fb987a.png" />
   </ItemGroup>
 
@@ -19,9 +22,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Assets\enemybild.png">
+    <Resource Include="Assets\enemy1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Resource>
+    <Resource Include="Assets\enemy2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\enemy3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

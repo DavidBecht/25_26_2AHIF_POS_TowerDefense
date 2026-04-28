@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 using TowerDefenseGame.Helpers;
 
@@ -17,6 +18,9 @@ public class Enemy
     public bool  IsAlive    { get; protected set; } = true;
     public bool  ReachedEnd { get; private set; }   = false;
     public int   Reward     { get; }
+    private BitmapImage IMG;
+     
+        
 
     // Index des nächsten anzusteuernden Wegpunkts
     private int _waypointIndex = 1;
@@ -25,13 +29,15 @@ public class Enemy
     private Rectangle? _hpBarBg;
     private Rectangle? _hpBar;
 
-    public Enemy(int hp, double speed, int reward)
+    public Enemy(int hp, double speed, int reward, string img_path = "Assets/enemy1.png")
     {
         MaxHp    = hp;
         Hp       = hp;
         Speed    = speed;
         Reward   = reward;
         Position = PathDefinition.Waypoints[0];
+        IMG = new BitmapImage(new Uri(img_path, UriKind.Relative));
+
     }
 
     // -------------------------------------------------------------------------
@@ -97,17 +103,19 @@ public class Enemy
         if (_body == null)
         {
             _hpBarBg = new Rectangle { Width = 28, Height = 5, Fill = Brushes.DarkRed };
-            _hpBar   = new Rectangle { Width = 28, Height = 5, Fill = Brushes.LimeGreen };
+            _hpBar   = new Rectangle { Width = 28, Height = 5, Fill = Brushes.LimeGreen };            
+            canvas.Children.Add(_hpBarBg);
+            canvas.Children.Add(_hpBar);
             _body = new Image()
             {
                 Width = GetSize(),
-                Height = GetSize()
+                Height = GetSize(),
+                Source = IMG
             };
-            _body.Source = new BitmapImage(new Uri("Assets/enemybild.png", UriKind.Relative));
-            canvas.Children.Add(_hpBarBg);
-            canvas.Children.Add(_hpBar);
             canvas.Children.Add(_body);
+                   
         }
+
 
         double half = GetSize() / 2.0;
         Canvas.SetLeft(_body,   Position.X - half);
