@@ -20,6 +20,8 @@ public class MachineGunTower : Tower
     //    Tipp: Zähle Schüsse in einem privaten Feld _shotCount; überschreibe Shoot().
 
     public MachineGunTower(Point position) : base(position, range: 100, damage: 40, fireRate: 4.0, towerType: TowerType.MachineGun) { }
+  
+
 
     protected override Brush GetColor() => Brushes.OrangeRed; // TODO (WP19): Farbe wählen
 
