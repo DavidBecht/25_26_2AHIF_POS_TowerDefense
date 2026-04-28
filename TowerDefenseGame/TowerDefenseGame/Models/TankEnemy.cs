@@ -19,7 +19,7 @@ public class TankEnemy : Enemy
     // 3. Überschreibe Draw() um zusätzlich einen dicken Rand (Panzer-Optik) zu zeichnen.
     //    Tipp: Rufe zuerst base.Draw(canvas) auf, dann zeichne darüber.
 
-    public TankEnemy() : base(hp: 350, speed: 0.7, reward: 25) { }
+    public TankEnemy() : base(hp: 350, speed: 0.7, reward: 25, img_path:"Assets/enemy2.png") { }
 
     protected override Brush  GetColor() => Brushes.DarkViolet; // TODO (WP17): Farbe wählen
     protected override double GetSize()

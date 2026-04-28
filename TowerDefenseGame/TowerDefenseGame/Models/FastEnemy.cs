@@ -18,7 +18,7 @@ public class FastEnemy : Enemy
     // 3. Überschreibe Move() um eine leicht geschwungene Bewegung einzubauen
     //    (kleiner Sinus-Offset senkrecht zur Bewegungsrichtung).
 
-    public FastEnemy() : base(hp: 40, speed: 3.5, reward: 5) { }
+    public FastEnemy() : base(hp: 40, speed: 3.5, reward: 5, img_path: "Assets/enemy3.png") { }
 
     protected override Brush GetColor() => Brushes.Orange;  // TODO (WP16): Farbe wählen
     protected override double GetSize() => 18;   // TODO (WP16): Größe anpassen
