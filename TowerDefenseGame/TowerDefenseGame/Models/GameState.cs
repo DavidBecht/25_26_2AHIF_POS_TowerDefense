@@ -104,16 +104,15 @@ public class GameState
         {
             if (!enemy.IsAlive)
             {
-                enemy.RemoveFromCanvas(canvas);
-                Enemies.Remove(enemy);
-                Log.Debug("Gegner besiegt - Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
                 if (enemy.ReachedEnd)
                 {
                     Lives--;
                     Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
                 }
                 else
-                    Score += enemy.Reward; // Punkte gutschreiben
+                    Score += enemy.Reward;  // Punkte gutschreiben
+                enemy.RemoveFromCanvas(canvas);
+                Enemies.Remove(enemy);
             }
         }
 
