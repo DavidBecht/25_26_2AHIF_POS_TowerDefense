@@ -6,6 +6,10 @@ namespace TowerDefenseGame.Models;
 // WP19: Maschinengewehr-Turm – kleine Reichweite, hoher Schaden, sehr schnelle Schussrate
 public class MachineGunTower : Tower
 {
+    protected override string GetImagePath()
+    {
+        return "Assets/Images/TowerMG2.png";
+    }
     // TODO (WP19): Erstelle den MachineGunTower.
     //
     // Konstruktor-Aufruf (bereits vorgegeben):
@@ -19,6 +23,7 @@ public class MachineGunTower : Tower
     //    (z. B. 1.5 Sekunden keine Schüsse).
     //    Tipp: Zähle Schüsse in einem privaten Feld _shotCount; überschreibe Shoot().
 
+   
     public MachineGunTower(Point position) : base(position, range: 100, damage: 40, fireRate: 4.0, towerType: TowerType.MachineGun) { }
   
 

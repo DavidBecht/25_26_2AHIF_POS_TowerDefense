@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Windows.Media.Imaging;
 
 namespace TowerDefenseGame.Models;
 
@@ -82,18 +83,34 @@ public class Tower
     // Zeichnen (fertig implementiert)
     // -------------------------------------------------------------------------
 
+    protected virtual string GetImagePath()
+    {
+        return "Assets/Images/TowerBasic.png";
+    }
+
     public void Draw(Canvas canvas)
     {
         if (_shape == null)
         {
             _shape = new Rectangle
             {
-                Width  = 28,
+                Width = 28,
                 Height = 28,
-                Fill   = GetColor(),
-                Stroke = Brushes.Black,
-                StrokeThickness = 1.5,
+                // Fill   = GetColor(),
+               // Stroke = Brushes.Black,
+               // StrokeThickness = 1.5,
+                
+
             };
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(GetImagePath(), UriKind.Relative);
+            bitmap.EndInit();
+            ImageBrush brush = new ImageBrush();
+            brush.ImageSource = bitmap;
+            _shape.Fill = brush;
+
             canvas.Children.Add(_shape);
         }
         Canvas.SetLeft(_shape, Position.X - 14);

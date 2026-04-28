@@ -6,6 +6,10 @@ namespace TowerDefenseGame.Models;
 // WP18: Scharfschützen-Turm – große Reichweite, wenig Schaden, langsame Schussrate
 public class SniperTower : Tower
 {
+    protected override string GetImagePath()
+    {
+        return "Assets/Images/TowerSniper.png";
+    }
     // TODO (WP18): Erstelle den SniperTower.
     //
     // Konstruktor-Aufruf (bereits vorgegeben):
