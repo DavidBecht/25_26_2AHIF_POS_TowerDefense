@@ -320,4 +320,26 @@ public partial class MainWindow : Window
             GameCanvas.Children.Add(line);
         }
     }
+
+    private void DisplayStats(double range, double damage, double firerate)
+    {
+        TxtTowerRange.Text = $"Reichweite:     {range} px";
+        TxtTowerDamage.Text = $"Schaden:        {damage} ";
+        TxtTowerFireRate.Text = $"Schussrate:     {firerate} / s";
+    }
+
+    private void RbBasic_Checked(object sender, RoutedEventArgs e)
+    {
+        DisplayStats(120, 20, 1);
+    }
+
+    private void RbSniper_Checked(object sender, RoutedEventArgs e)
+    {
+        DisplayStats(250, 15, 0.5);
+    }
+
+    private void RbMachineGun_Checked(object sender, RoutedEventArgs e)
+    {
+        DisplayStats(100, 40, 4);
+    }
 }
