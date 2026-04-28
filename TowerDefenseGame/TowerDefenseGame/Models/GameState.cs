@@ -102,16 +102,19 @@ public class GameState
 
         foreach (var enemy in Enemies.ToList())
         {
-            enemy.RemoveFromCanvas(canvas);
-            Enemies.Remove(enemy);
-            Log.Debug("Gegner besiegt - Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
-            if (enemy.ReachedEnd)
+            if (!enemy.IsAlive)
             {
-                Lives--;
-                Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
+                enemy.RemoveFromCanvas(canvas);
+                Enemies.Remove(enemy);
+                Log.Debug("Gegner besiegt - Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
+                if (enemy.ReachedEnd)
+                {
+                    Lives--;
+                    Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
+                }
+                else
+                    Score += enemy.Reward; // Punkte gutschreiben
             }
-            else
-                Score += enemy.Reward; // Punkte gutschreiben
         }
 
         // Projektile (analog):
