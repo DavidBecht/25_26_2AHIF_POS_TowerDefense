@@ -277,6 +277,7 @@ public partial class MainWindow : Window
         _state = new GameState();
         GameCanvas.Children.Clear();
         DrawGrid(); DrawPath();
+        _state.LoadFrom(save);
         foreach (var td in save.Towers)
             _state.TryPlaceTower(new Point(td.X, td.Y), td.Type);
         UpdateUI();
