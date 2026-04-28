@@ -95,7 +95,7 @@ public partial class MainWindow : Window
         UpdateUI();
 
         if (_state.IsGameOver)
-            ShowGameOver();
+            ShowGameOver(); 
     }
 
     // -------------------------------------------------------------------------
@@ -222,7 +222,8 @@ public partial class MainWindow : Window
     {
         if (RbSniper.IsChecked     == true) return TowerType.Sniper;
         if (RbMachineGun.IsChecked == true) return TowerType.MachineGun;
-        return TowerType.Basic;
+        if (RbBasic.IsChecked == true) return TowerType.Basic;
+        return TowerType.None;
     }
 
     private void BtnNextWave_Click(object sender, RoutedEventArgs e)

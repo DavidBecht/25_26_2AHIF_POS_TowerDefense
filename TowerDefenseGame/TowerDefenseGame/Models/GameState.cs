@@ -6,7 +6,7 @@ using TowerDefenseGame.Helpers;
 
 namespace TowerDefenseGame.Models;
 
-public enum TowerType { Basic, Sniper, MachineGun }
+public enum TowerType { Basic, Sniper, MachineGun, None }
 
 public class GameState
 {
@@ -59,6 +59,9 @@ public class GameState
 
         // 2. Prüfe ob die Zelle gültig ist (sonst return false):
         if (col < 0 || col >= PathDefinition.Columns)
+            return false;
+
+        else if (selectedType == TowerType.None)
             return false;
 
         else if (row < 0 || row >= PathDefinition.Rows)
