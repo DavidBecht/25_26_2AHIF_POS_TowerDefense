@@ -28,6 +28,10 @@ public class GameState
 
     public void LoadFrom(SaveGame save)
     {
+        Lives = save.Lives;
+        Score = save.Score;
+        WaveSpawner.SetWave(save.CurrentWave);
+    
         // TODO (WP20b): Stelle Lives, Score und CurrentWave aus save wieder her.
         //
         // Lives und Score sind private set – ergänze hier direkt die Zuweisung
@@ -76,7 +80,7 @@ public class GameState
         {
             TowerType.Sniper     => new SniperTower(center),
             TowerType.MachineGun => new MachineGunTower(center),
-        _                    => new Tower(center, range: 120, damage: 20, fireRate: 1.0),
+        _                    => new Tower(center, range: 120, damage: 20, fireRate: 1.0, TowerType.Basic),
         };
 
         // 5. Füge Turm zur Liste hinzu und markiere Zelle als belegt:
