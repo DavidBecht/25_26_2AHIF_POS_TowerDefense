@@ -1,3 +1,4 @@
+using System.Security.Cryptography.Xml;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -38,14 +39,16 @@ public class Enemy
 
     public virtual void Move()
     {
-        double dx = PathDefinition.Waypoints[PathDefinition.Waypoints.Count() - 1].X - Position.X;
-        double dy = PathDefinition.Waypoints[PathDefinition.Waypoints.Count() - 1].Y - Position.Y;
+        double dx = PathDefinition.Waypoints[_waypointIndex].X - Position.X;
+        double dy = PathDefinition.Waypoints[_waypointIndex].Y - Position.Y;
         double distance = Math.Sqrt(dx * dx + dy * dy);
+
 
         if (distance < Speed)
         {
-            _waypointIndex++;
-                if (_waypointIndex >= PathDefinition.Waypoints.Count())
+            if(_waypointIndex < PathDefinition.Waypoints.Count() - 1)
+                _waypointIndex++;
+            if (_waypointIndex >= PathDefinition.Waypoints.Count())
             {
                 ReachedEnd = true;
                 IsAlive = false;
