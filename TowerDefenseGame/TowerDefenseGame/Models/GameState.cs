@@ -111,12 +111,12 @@ public class GameState
         {
             if (!enemy.IsAlive)
             {
-                enemy.RemoveFromCanvas(canvas);
-                Enemies.Remove(enemy);
                 if (enemy.ReachedEnd)
                     Lives--;           // Leben abziehen
                 else
                     Score += enemy.Reward;  // Punkte gutschreiben
+                enemy.RemoveFromCanvas(canvas);
+                Enemies.Remove(enemy);
             }
         }
 

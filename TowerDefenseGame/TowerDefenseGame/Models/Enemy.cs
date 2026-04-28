@@ -43,10 +43,13 @@ public class Enemy
         double dy = PathDefinition.Waypoints[_waypointIndex].Y - Position.Y;
         double distance = Math.Sqrt(dx * dx + dy * dy);
 
+        dx = dx / distance * Speed;
+        dy = dy / distance * Speed;
+        Position = new Point(Position.X + dx, Position.Y + dy);
 
         if (distance < Speed)
         {
-            if(_waypointIndex < PathDefinition.Waypoints.Count() - 1)
+            if(_waypointIndex < PathDefinition.Waypoints.Count())
                 _waypointIndex++;
             if (_waypointIndex >= PathDefinition.Waypoints.Count())
             {
@@ -55,9 +58,6 @@ public class Enemy
                 return;
             }
         }
-        dx = dx / distance * Speed;
-        dy = dy / distance * Speed;
-        Position = new Point(Position.X + dx, Position.Y + dy);
 
         // TODO (WP1): Bewege den Gegner in Richtung PathDefinition.Waypoints[_waypointIndex].
         //
