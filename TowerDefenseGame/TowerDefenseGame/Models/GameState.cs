@@ -94,30 +94,22 @@ public class GameState
 
     public void Update(Canvas canvas)
     {
-        // TODO (WP11): Entferne tote Gegner und inaktive Projektile.
-        //
-        // Logging-Hints für WP21c:
-        // - Gegner getötet:       Log.Debug("Gegner besiegt – Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
-        // - Gegner am Ziel:       Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
-        // - Game Over:            Log.Warning("=== GAME OVER === Score: {S}, Welle: {W}", Score, WaveSpawner.CurrentWave);
-        // - Turm platziert (in TryPlaceTower): Log.Information("Turm {T} auf ({C},{R}) platziert.", selectedType, col, row);
-
         // Gegner (iteriere über eine Kopie der Liste mit ToList()):
-        //   foreach (var enemy in Enemies.ToList())
-        //   {
-        //       if (!enemy.IsAlive)
-        //       {
-        //           enemy.RemoveFromCanvas(canvas);
-        //           Enemies.Remove(enemy);
-        //           Log.Debug("Gegner besiegt – Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
-        //           if (enemy.ReachedEnd)
-        //               Lives--;           // Leben abziehen
-        //               Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
-        //           else
-        //               Score += enemy.Reward;  // Punkte gutschreiben
-        //       }
-        //   }
-        //
+
+        foreach (var enemy in Enemies.ToList())
+        {
+            enemy.RemoveFromCanvas(canvas);
+            Enemies.Remove(enemy);
+            Log.Debug("Gegner besiegt - Reward {R}. Score jetzt {S}.", enemy.Reward, Score);
+            if (enemy.ReachedEnd)
+            {
+                Lives--;
+                Log.Warning("Gegner hat das Ziel erreicht! Leben: {L}", Lives);
+            }
+            else
+                Score += enemy.Reward; // Punkte gutschreiben
+        }
+
         // Projektile (analog):
         foreach (var p in Projectiles.ToList())
         {
@@ -128,10 +120,10 @@ public class GameState
             }
         }
         
-        // Game Over prüfen:
-        //   if (Lives <= 0){
-        //   IsGameOver = true;
-        //   Log.Warning("=== GAME OVER === Score: {S}, Welle: {W}", Score, WaveSpawner.CurrentWave);
-        //   }
+         // Game Over prüfen:
+           if (Lives <= 0){
+           IsGameOver = true;
+           Log.Warning("=== GAME OVER === Score: {S}, Welle: {W}", Score, WaveSpawner.CurrentWave);
+           }
     }
 }
