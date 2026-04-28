@@ -20,7 +20,7 @@ public class SniperTower : Tower
     //    nicht den nächsten zur Turmposition.
     //    Tipp: Vergleiche den _waypointIndex der Gegner (ggf. als Property ergänzen).
 
-    public SniperTower(Point position) : base(position, range: 250, damage: 15, fireRate: 0.5) { }
+    public SniperTower(Point position) : base(position, range: 250, damage: 15, fireRate: 0.5, towerType: TowerType.Sniper) { }
 
     protected override Brush GetColor() => Brushes.DarkGreen; // TODO (WP18): Farbe wählen
 }

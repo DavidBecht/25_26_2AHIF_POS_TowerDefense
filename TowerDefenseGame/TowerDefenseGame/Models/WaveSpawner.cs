@@ -1,4 +1,4 @@
-namespace TowerDefenseGame.Models;
+    namespace TowerDefenseGame.Models;
 
 public class WaveSpawner
 {
@@ -12,7 +12,11 @@ public class WaveSpawner
     // -------------------------------------------------------------------------
     // WP8: Nächste Welle starten
     // -------------------------------------------------------------------------
-    
+
+    public void SetWave(int wave)
+    {
+        CurrentWave = wave;
+    }
     public void StartNextWave()
     {
         // TODO (WP8): Bereite die nächste Welle vor.

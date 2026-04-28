@@ -21,6 +21,28 @@ public static class SaveGameService
 
     public static void Save(GameState state)
     {
+        try
+        {
+            var save = new SaveGame
+            {
+                Lives = state.Lives,
+                Score = state.Score,
+                CurrentWave = state.WaveSpawner.CurrentWave,
+            };
+            foreach (Tower tower in state.Towers)
+                save.Towers.Add(new TowerSaveData
+                {
+                    X = tower.Position.X,
+                    Y = tower.Position.Y,
+                    Type = tower.TowerType,    // ← TowerType-Property muss in Tower ergänzt werden (s. Hinweis)
+                });
+            string json = JsonSerializer.Serialize(save, JsonOptions);
+            File.WriteAllText(SavePath, json);
+        }
+        catch
+        {
+            Log.Error("Fehler beim Speichern des Spiels");
+        }
         // TODO (WP20a): Konvertiere den aktuellen GameState in ein SaveGame-Objekt
         // und serialisiere es als JSON in die Datei SavePath.
         //
@@ -62,23 +84,35 @@ public static class SaveGameService
 
     public static SaveGame? Load()
     {
+        try
+        {
+            if (!File.Exists(SavePath)) { Log.Warning("Keine Speicherdatei gefunden."); return null; }
+            string json = File.ReadAllText(SavePath);
+            var save = JsonSerializer.Deserialize<SaveGame>(json, JsonOptions);
+            Log.Information("Spielstand geladen: Welle {Wave}, Score {Score}");
+            return save;
+        }
+        catch
+        {
+            Log.Error("Spielstand konnte nicht geladen werden!");
+        }
+        return null;
         // TODO (WP20b): Lese die JSON-Datei und deserialisiere sie zurück in ein SaveGame.
         //
         // Schritte:
         // 1. Prüfe ob die Datei existiert:
-               if (!File.Exists(SavePath)) { Log.Warning("Keine Speicherdatei gefunden."); return null; }
         //
         // 2. Lese und deserialisiere:
         //       string json   = File.ReadAllText(SavePath);
         //       var    save   = JsonSerializer.Deserialize<SaveGame>(json, JsonOptions);
         //
         // 3. Logging:
-        Log.Information("Spielstand geladen: Welle {Wave}, Score {Score}"); //Es gibt diese Variablen auch noch nicht
+        //Es gibt diese Variablen auch noch nicht
         //                        save.CurrentWave, save.Score);
         //
         // 4. Gib save zurück.
         //
         // Fehlerbehandlung: Wrap alles in try/catch – bei Fehler Log.Error(...) aufrufen, null zurückgeben.
-        return null;
+
     }
 }

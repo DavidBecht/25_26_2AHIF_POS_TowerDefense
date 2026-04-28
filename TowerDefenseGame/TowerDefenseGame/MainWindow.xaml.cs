@@ -256,6 +256,8 @@ public partial class MainWindow : Window
 
     private void BtnSave_Click(object sender, RoutedEventArgs e)
     {
+        SaveGameService.Save(_state);
+        MessageBox.Show("Spielstand gespeichert!", "Gespeichert", MessageBoxButton.OK, MessageBoxImage.Information);
         // TODO (WP20a): Spielstand speichern.
         //
         // 1. Rufe SaveGameService.Save(_state) auf.
@@ -266,6 +268,20 @@ public partial class MainWindow : Window
 
     private void BtnLoad_Click(object sender, RoutedEventArgs e)
     {
+        SaveGame? save = SaveGameService.Load();
+        if (save == null)
+        {
+            MessageBox.Show("Spiel konnte gespeichert werden!");
+            return;
+        }
+        _state = new GameState();
+        GameCanvas.Children.Clear();
+        DrawGrid(); DrawPath();
+        foreach (var td in save.Towers)
+            _state.TryPlaceTower(new Point(td.X, td.Y), td.Type);
+        UpdateUI();
+        _lastTick = DateTime.Now;
+        _timer.Start();
         // TODO (WP20b): Spielstand laden und Spielfeld wiederherstellen.
         //
         // 1. Rufe SaveGame? save = SaveGameService.Load() auf.
