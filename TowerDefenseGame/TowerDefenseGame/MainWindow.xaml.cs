@@ -29,7 +29,7 @@ public partial class MainWindow : Window
         DrawPath();
         InitTimer();
         UpdateUI();
-        // TODO (WP21b): Log.Information("Hauptfenster geladen – Spiel bereit.");
+        Log.Information("Hauptfenster geladen – Spiel bereit.");
         Log.Information("Hauptfenster geladen – Spiel bereit.");
     }
 
@@ -230,7 +230,7 @@ public partial class MainWindow : Window
         if (!_state.WaveSpawner.IsSpawning)
         {
             _state.WaveSpawner.StartNextWave();
-            // TODO (WP21b): Log.Information("Welle {Wave} gestartet.", _state.WaveSpawner.CurrentWave);
+            Log.Information("Welle {Wave} gestartet.", _state.WaveSpawner.CurrentWave);
             Log.Information("Welle {Wave} gestartet.", _state.WaveSpawner.CurrentWave); // Es gibt Wave nicht
 
         }
@@ -238,7 +238,7 @@ public partial class MainWindow : Window
 
     private void BtnRestart_Click(object sender, RoutedEventArgs e)
     {
-        // TODO (WP21b): Log.Information("Spiel neu gestartet.");
+        Log.Information("Spiel neu gestartet.");
         _state = new GameState();
         _rangeCircle = null;
         GameCanvas.Children.Clear();
@@ -277,6 +277,7 @@ public partial class MainWindow : Window
         _state = new GameState();
         GameCanvas.Children.Clear();
         DrawGrid(); DrawPath();
+        _state.LoadFrom(save);
         foreach (var td in save.Towers)
             _state.TryPlaceTower(new Point(td.X, td.Y), td.Type);
         UpdateUI();

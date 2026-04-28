@@ -50,7 +50,6 @@ public class WaveSpawner
         if (_enemiesToSpawn == 0) IsSpawning = false;
         if (CurrentWave % 3 == 0) return new TankEnemy();
         else if (CurrentWave % 2 == 0) return new FastEnemy();
-        else new Enemy(hp: 80 + CurrentWave * 15, speed: 1.2, reward: 10);
-        return null;
+        else return new Enemy(hp: 80 + CurrentWave * 15, speed: 1.2, reward: 10);
     }
 }
