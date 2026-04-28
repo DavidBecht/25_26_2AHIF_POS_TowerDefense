@@ -11,16 +11,17 @@ public class Tower
     public double Range    { get; }
     public int    Damage   { get; }
     public double FireRate { get; }  // Schüsse pro Sekunde
-
+    public TowerType TowerType { get; } // Art des Towers
     private double _cooldown = 0;
     private Rectangle? _shape;
 
-    public Tower(Point position, double range, int damage, double fireRate)
+    public Tower(Point position, double range, int damage, double fireRate, TowerType towerType)
     {
         Position = position;
         Range    = range;
         Damage   = damage;
         FireRate = fireRate;
+        TowerType = towerType;
     }
 
     // -------------------------------------------------------------------------
