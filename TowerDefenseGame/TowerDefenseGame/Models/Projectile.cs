@@ -36,14 +36,6 @@ public class Projectile
         {
             IsActive = false;
         }
-
-        // TODO (WP6): Bewege das Projektil.
-        //
-        // Neue Position:
-
-        //
-        // Setze IsActive = false wenn das Projektil außerhalb des Canvas ist:
-      
     }
 
     // -------------------------------------------------------------------------
